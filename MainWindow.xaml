@@ -1,0 +1,120 @@
+﻿<Window x:Class="SZVideoConverter_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SZVideoConverter_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1500">
+
+        <StackPanel x:Name="MainStackPanel" Orientation="Horizontal">
+            <ScrollViewer>
+                <Grid Background="AliceBlue"  AllowDrop="True" Drop="VideosContiner_Drop" Name="VideosContiner" DragEnter="VideosContiner_DragEnter" Margin="10,10,10,8" Width="1118" Height="2281">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--<local:VideoBlock Width = "260" Height = "240"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Column="1"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Column="2"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Column="3"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="1"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="1" Grid.Column="1"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="1" Grid.Column="2"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="1" Grid.Column="3"/>
+
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="2"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="2" Grid.Column="1"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="2" Grid.Column="2"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="2" Grid.Column="3"/>
+
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="3"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="3" Grid.Column="1"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="3" Grid.Column="2"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="3" Grid.Column="3"/>
+
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="4"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="4" Grid.Column="1"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="4" Grid.Column="2"/>
+                <local:VideoBlock Width = "260" Height = "240" Grid.Row="4" Grid.Column="3"/>-->
+                </Grid>
+            </ScrollViewer>
+        <ScrollViewer>
+            <StackPanel Width="325" Margin="0,10,0,10">
+                <TextBlock Foreground ="Gray" Text="Video Details" Background="#FFEEEEEE" FontSize="25" TextAlignment="Center" Margin="0,0,0,0"></TextBlock>
+                <StackPanel Name="VideoDetailsStackPanel">
+                    
+                    <TextBlock Text=" Common infos" FontSize="15" Background="#FFDDDDDD"></TextBlock>
+                    <TextBlock Name="Duration" Text=" Duration:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Size" Text=" Size:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="CreateTime" Text=" Create Time:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Path" Text=" Path:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    
+                    <TextBlock Text=" Video Stream" FontSize="15" Background="#FFDDDDDD"></TextBlock>
+                    <TextBlock Name="Width" Text=" Width:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Height" Text=" Height:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Framerate" Text=" Framerate:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Ratio" Text=" Ratio:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="VideoBitrate" Text=" Bitrate:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="PixelFormat" Text=" PixelFormat:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Rotation" Text=" Rotation:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+
+                    <TextBlock Text=" Audio Stream" FontSize="15" Background="#FFDDDDDD"></TextBlock>
+                    <TextBlock Name="AudioBitrate" Text=" Bitrate:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="SampleRate" Text=" SampleRate:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="Channels" Text=" Channels:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="AudioLanguage" Text=" Language:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="AudioTitle" Text=" Title:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+
+                    <TextBlock Text=" Subtitle Stream" FontSize="15" Background="#FFDDDDDD"></TextBlock>
+                    <TextBlock Name="SubtitleLanguage" Text=" Language:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                    <TextBlock Name="SubtitleTitle" Text=" Title:" FontSize="10" Background="#FFCCCCCC"></TextBlock>
+                </StackPanel>
+                <TextBlock Foreground ="Gray" Text="Formats" Background="#FFEEEEEE" FontSize="25" TextAlignment="Center" Margin="0,0,0,10"></TextBlock>
+                <Grid Name="CheckBoxContiner" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <CheckBox Content="Mp4" Name="Mp4CheckBox" IsEnabled="False"/>
+                    <CheckBox Content="Avi" Grid.Column="1" Name="AviCheckBox" IsEnabled="False"/>
+                    <CheckBox Content="Flv" Grid.Column="2" Name="FlvCheckBox" IsEnabled="False"/>
+                    <CheckBox Content="Mov" Grid.Column="0" Grid.Row="1" Name="MovCheckBox" IsEnabled="False"/>
+                    <CheckBox Content="Mkv" Grid.Column="1" Grid.Row="1" Name="MkvCheckBox" IsEnabled="False"/>
+                    <!--<CheckBox Content="Rmvb" Grid.Column="2" Grid.Row="1" Name="RmvbCheckBox" IsEnabled="False"/>-->
+                    <CheckBox Content="Wmv" Grid.Column="2" Grid.Row="1" Name="WmvCheckBox" IsEnabled="False"/>
+                </Grid>
+                <TextBlock Foreground ="Gray" Text="Pixel Formats" Background="#FFEEEEEE" FontSize="25" TextAlignment="Center" Margin="0,0,0,10"></TextBlock>
+                <ComboBox Name="PixelFormatComboBox" Margin="0,0,0,10" SelectedIndex="0" SelectionChanged="PixelFormatComboBox_SelectionChanged">
+                    <ComboBoxItem>Default</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Foreground ="Gray" Text="Operations" Background="#FFEEEEEE" FontSize="25" TextAlignment="Center" Margin="0,0,0,10"></TextBlock>
+                <Button Content="Transcode" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Click="Button_Click" HorizontalAlignment="Stretch" IsEnabled="False" Name="transcode_btn"/>
+                <Button Content="Remove" Margin="0,5,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Click="remove_item_btn_Click" HorizontalAlignment="Stretch" IsEnabled="False" Name="remove_item_btn" Width="345"/>
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+
+    
+    
+</Window>
